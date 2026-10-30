@@ -44,7 +44,10 @@ Réalisé dans le commit c32bfaf :
 - Magasins du 63 : 15 boutiques réelles sourcées le 30/10/2026 (GameCash, Micromania Jaude/Brezet, Smyths, Cultura, King Jouet, Fnac, Leclerc + boutiques TCG indépendantes d'annuaire communautaire). Horaires uniquement pour sources officielles/agrégées. Aucun stock affirmé.
 - Alertes locales : journal installé sur l'accueil, alimenté par les changements réels du calendrier (nouvelle annonce, report, conflit, source bloquée). Notifications navigateur à activer manuellement.
 - Signalements (communauté, version locale) : page /signalements/ ouverte le 30/10/2026. Observation datée par magasin sourcé, état (en rayon, rupture, tirage au sort, vente décalée), prix et quantité optionnels, note, photo de preuve contrôlée, fraîcheur affichée (fraîche/récente/ancienne/périmée), filtres, suppression, export et import JSON validés (28 tests). Stockage strictement local : la synchronisation multi-appareils n'est PAS installée et c'est affiché.
-- Prix/EV, itinéraires, profil/sauvegardes, scan : à construire.
+- Design (30/10/2026, v0.7.0) : refonte claire et illustrée sur toutes les pages — thème lumineux (fond crème, rouge/blue/green PokéRadar), logo SVG original sur chaque page, radar animé sur l'accueil, icônes par fonction, carte schématique des zones sur Magasins, navigation unifiée (Accueil, Calendrier, Magasins, Signalements, Didacticiel).
+- Didacticiel (30/10/2026) : page /tuto/ ouverte — 5 étapes illustrées en langage simple, vocabulaire (observation, fraîcheur, source, alerte, vérifié), bilan honnête de ce qui marche et de ce qui est en chantier.
+- Bug corrigé : la CSP bloquait l'affichage des photos de preuve (img-src data:). Les photos de signalements s'affichent désormais.
+- Prix/EV, itinéraires, profil/sauvegardes, scan, synchronisation multi-appareils : à construire.
 
 Non encore validé ou réalisé :
 
