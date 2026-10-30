@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-30T01:54:01.107923+00:00",
+  "indexOk": true,
+  "discoveredCount": 0,
+  "attempted": 5,
+  "pendingCount": 0,
+  "records": [],
+  "history": [],
+  "errors": [
+    {
+      "url": "https://www.pokemon.com/fr/jcc-pokemon/galerie-produits/collections-ultra-premium-30-anniversaire-journee-et-soiree",
+      "error": "Page inaccessible ou structure non reconnue"
+    },
+    {
+      "url": "https://www.pokemon.com/fr/jcc-pokemon/galerie-produits/collection-premium-metamorph-30-anniversaire",
+      "error": "Page inaccessible ou structure non reconnue"
+    },
+    {
+      "url": "https://www.pokemon.com/fr/jcc-pokemon/galerie-produits/collection-avec-figurine-30-anniversaire",
+      "error": "Page inaccessible ou structure non reconnue"
+    },
+    {
+      "url": "https://www.pokemon.com/fr/jcc-pokemon/galerie-produits/deck-combat-30-anniversaire-mentali-ex-et-deck-combat-30-anniversaire-noctali-ex",
+      "error": "Page inaccessible ou structure non reconnue"
+    },
+    {
+      "url": "https://www.pokemon.com/fr/actualites/lextension-mega-evolution-regne-delta-du-jcc-pokemon-arrive-le-6-novembre-2026",
+      "error": "Page inaccessible ou structure non reconnue"
+    }
+  ],
+  "scope": "Pages officielles FR uniquement. Pas de stock, pas de fournisseur prix, pas de revendeur. Articles extension et fiches produits distincts."
+}
