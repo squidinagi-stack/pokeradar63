@@ -43,7 +43,8 @@ Réalisé dans le commit c32bfaf :
 - Calendrier : moteur installé, workflow exécuté ; dernière collecte bloquée par Incapsula (page pokemon.com). Correctif anti-blocage publié, accès réel à reconfirmer.
 - Magasins du 63 : 15 boutiques réelles sourcées le 30/10/2026 (GameCash, Micromania Jaude/Brezet, Smyths, Cultura, King Jouet, Fnac, Leclerc + boutiques TCG indépendantes d'annuaire communautaire). Horaires uniquement pour sources officielles/agrégées. Aucun stock affirmé.
 - Alertes locales : journal installé sur l'accueil, alimenté par les changements réels du calendrier (nouvelle annonce, report, conflit, source bloquée). Notifications navigateur à activer manuellement.
-- Communauté, photos/scan, prix/EV, itinéraires, profil/sauvegardes : à construire.
+- Signalements (communauté, version locale) : page /signalements/ ouverte le 30/10/2026. Observation datée par magasin sourcé, état (en rayon, rupture, tirage au sort, vente décalée), prix et quantité optionnels, note, photo de preuve contrôlée, fraîcheur affichée (fraîche/récente/ancienne/périmée), filtres, suppression, export et import JSON validés (28 tests). Stockage strictement local : la synchronisation multi-appareils n'est PAS installée et c'est affiché.
+- Prix/EV, itinéraires, profil/sauvegardes, scan : à construire.
 
 Non encore validé ou réalisé :
 
