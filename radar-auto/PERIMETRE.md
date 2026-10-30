@@ -1,0 +1,8 @@
+# Lot calendrier autonome — périmètre exact
+Ce lot ajoute radar-auto/ sans remplacer l’accueil existant. Il ne réalise pas tout le cahier des charges.
+Collecte : cinq pages officielles de départ + découverte depuis les liens HTML de la galerie Pokémon FR. Maximum 20 fiches par passage, priorité aux pages jamais consultées ou les plus anciennes. Pas de contournement anti-robot. Les sites bloqués ou rendus uniquement en JavaScript peuvent rester inaccessibles.
+Extraction : formulations françaises explicites reconnues ; trimestre conservé sans inventer de jour ; plusieurs dates distinctes = conflit. Il ne sait pas interpréter toutes les formulations possibles ni toutes les variantes, et une date d’extension n’est pas automatiquement une date d’ETB.
+Historique : changements de précision/date/trimestre, dernières 200 modifications. Échec réseau : ancienne fiche conservée avec avertissement.
+Automatisation : workflow sur main, lancement au premier push des scripts puis quotidien à 05:23 UTC, susceptible de retard ou désactivation par GitHub. Écriture limitée aux deux rapports de radar-auto/. Vérifier la première exécution et le redéploiement Vercel : pas de garantie que le commit du bot sera automatiquement publié.
+Tests : 12 tests unitaires synthétiques exécutés avec succès localement. Aucune collecte réseau réelle ni test navigateur exécuté dans l’environnement de préparation.
+Non inclus : revendeurs, reports annoncés seulement sur réseaux, stocks magasin, notifications, photos, scan, communauté, prix, EV, itinéraires, badges, comptes et synchronisation. Les autres exigences restent ouvertes, non satisfaites par ce lot.

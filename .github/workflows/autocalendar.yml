@@ -1,0 +1,43 @@
+name: Calendrier officiel automatique
+on:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/autocalendar.py'
+      - 'scripts/test_autocalendar.py'
+      - '.github/workflows/autocalendar.yml'
+permissions:
+  contents: write
+concurrency:
+  group: autocalendar-main
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Tests extraction
+        run: python -m unittest discover -s scripts -p 'test_autocalendar.py' -v
+      - name: Lire les sources officielles
+        run: python scripts/autocalendar.py
+      - name: Publier le rapport de collecte
+        if: always()
+        run: |
+          if [ -f radar-auto/calendar.json ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add radar-auto/calendar.json radar-auto/calendar-data.js
+            if ! git diff --cached --quiet; then
+              git commit -m 'Actualiser le calendrier officiel et son historique'
+              git push origin HEAD:main
+            fi
+          fi
