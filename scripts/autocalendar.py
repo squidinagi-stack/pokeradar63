@@ -26,7 +26,7 @@ def date_from(match):
  except (ValueError,KeyError):return None
 def extract(html,url):
  p=Text();p.feed(html);title=' '.join(p.parts[:12]);text=normalize(' '.join(p.parts))
- if not text or re.search(r'captcha|access denied|pardon our interruption|verify you are human',title+' '+text,re.I):raise ValueError('Page inaccessible ou structure non reconnue')
+ if not text or re.search(r'captcha|access denied|pardon our interruption|verify you are human|request unsuccessful|incapsula incident',title+' '+text,re.I):raise ValueError('Page de blocage ou structure non reconnue (Incapsula)')
  main=re.split(r'Autres articles',text,flags=re.I)[0]
  patterns=[
   r'(?:disponible(?:s)?\s+(?:le|à partir du)|date de sortie\s*:?\s*|sortira\s+le|arrive(?:nt)?\s+le|sortie\s+(?:prévue\s+)?le)\s*(\d{1,2})\s+('+ '|'.join(MONTHS)+r')\.?\s+(20\d{2})',

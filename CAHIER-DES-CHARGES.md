@@ -38,6 +38,13 @@ Réalisé dans le commit c32bfaf :
 - Workflow quotidien à 05:23 UTC.
 - 12 tests unitaires synthétiques.
 
+## État des briques (30/10/2026)
+
+- Calendrier : moteur installé, workflow exécuté ; dernière collecte bloquée par Incapsula (page pokemon.com). Correctif anti-blocage publié, accès réel à reconfirmer.
+- Magasins du 63 : 15 boutiques réelles sourcées le 30/10/2026 (GameCash, Micromania Jaude/Brezet, Smyths, Cultura, King Jouet, Fnac, Leclerc + boutiques TCG indépendantes d'annuaire communautaire). Horaires uniquement pour sources officielles/agrégées. Aucun stock affirmé.
+- Alertes locales : journal installé sur l'accueil, alimenté par les changements réels du calendrier (nouvelle annonce, report, conflit, source bloquée). Notifications navigateur à activer manuellement.
+- Communauté, photos/scan, prix/EV, itinéraires, profil/sauvegardes : à construire.
+
 Non encore validé ou réalisé :
 
 - Première exécution réelle du workflow.
