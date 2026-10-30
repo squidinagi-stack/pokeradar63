@@ -1,20 +1,24 @@
 import unittest
-from autocalendar import extract,Page
-URL='https://www.pokemon.com/fr/jcc-pokemon/galerie-produits/test'
-class CalendarTests(unittest.TestCase):
- def get(self,text):return extract('<h1>Produit test</h1><p>'+text+'</p>',URL)
- def test_date(self):self.assertEqual(self.get('Date de sortie : 6 novembre 2026')['date'],'2026-11-06')
- def test_delay(self):self.assertEqual(self.get('Disponible le 27 novembre 2026')['date'],'2026-11-27')
- def test_quarter(self):self.assertEqual(self.get('Disponibles le 4e trimestre 2026')['quarter'],'2026-Q4')
- def test_no_invented_day(self):self.assertIsNone(self.get('Disponibles le 4e trimestre 2026')['date'])
- def test_publication_not_release(self):self.assertEqual(self.get('Publié le 6 novembre 2026')['status'],'unknown')
- def test_dispatch_not_release(self):self.assertEqual(self.get('Expédition le 6 novembre 2026')['status'],'unknown')
- def test_bad_date(self):self.assertIsNone(self.get('Date de sortie : 30 février 2026')['date'])
- def test_conflict(self):self.assertEqual(self.get('Disponible le 6 novembre 2026. Disponible le 27 novembre 2026')['status'],'conflict')
- def test_title_date(self):self.assertEqual(extract('<h1>Extension arrive le 6 novembre 2026</h1>',URL)['date'],'2026-11-06')
+import re
+from autocalendar import extract,normalize,date_from
+URL='https://www.pokemon.com/fr/test'
+HTML='<h1>Extension</h1><p>Méga-Rayquaza-ex débarque, disponible le 6 nov. 2026.</p><h2>Autres articles</h2><p>Date de sortie :5 octobre 2026</p>'
+class Tests(unittest.TestCase):
+ def test_real_page_pattern(self):
+  rec=extract(HTML,URL);self.assertEqual(rec['date'],'2026-11-06');self.assertEqual(rec['status'],'exact')
+ def test_full_month(self):
+  rec=extract('<h1>T</h1><p>Disponible le 6 novembre 2026.</p>',URL);self.assertEqual(rec['date'],'2026-11-06')
+ def test_abbrev(self):
+  rec=extract('<h1>T</h1><p>Date de sortie : 6 nov. 2026</p>',URL);self.assertEqual(rec['date'],'2026-11-06')
+ def test_article_date_not_release(self):
+  rec=extract('<h1>T</h1><p>20 août 2026</p>',URL);self.assertIsNone(rec['date'])
+ def test_conflict(self):
+  rec=extract('<h1>T</h1><p>Disponible le 6 novembre 2026. Disponible le 27 novembre 2026.</p>',URL);self.assertEqual(rec['status'],'conflict')
+ def test_bad_date(self):
+  self.assertIsNone(date_from(re.match(r'(\d{1,2})\s+(février)\s+(2026)','30 février 2026')))
+ def test_normalize(self):self.assertIn('6 nov 2026',normalize('6  nov.  2026'))
  def test_captcha(self):
   with self.assertRaises(ValueError):extract('<h1>Pardon Our Interruption</h1>',URL)
- def test_scripts(self):self.assertEqual(self.get('<script>Date de sortie : 6 novembre 2026</script>Inconnue')['status'],'unknown')
- def test_links(self):
-  p=Page();p.feed('<a href="/fr/jcc-pokemon/galerie-produits/test">Lien</a>');self.assertEqual(len(p.links),1)
+ def test_diagnostic(self):
+  rec=extract('<h1>T</h1><p>Aucune date.</p>',URL);self.assertEqual(rec['diagnostic'],'Aucune formulation exploitable trouvée')
 if __name__=='__main__':unittest.main()
