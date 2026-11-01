@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-31T05:57:40.226550+00:00",
+  "checkedAt": "2026-11-01T06:00:33.114174+00:00",
   "indexOk": true,
   "discoveredCount": 0,
   "attempted": 1,
@@ -17,7 +17,7 @@
       "lastFetchOk": false,
       "diagnostic": "Aucune formulation exploitable trouvée",
       "checkedAt": "2026-10-30T06:02:10.773973+00:00",
-      "lastAttemptAt": "2026-10-31T05:57:40.226550+00:00"
+      "lastAttemptAt": "2026-11-01T06:00:33.114174+00:00"
     }
   ],
   "history": [],
